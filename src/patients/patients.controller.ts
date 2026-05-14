@@ -25,7 +25,6 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { Roles } from '../auth/decorators/roles.decorator';
 import { CurrentUser } from '../auth/decorators/current-user.decorator';
 import { UserRole } from '../auth/interfaces/jwt-payload.interface';
-
 import { CreatePatientProfileDto } from './dto/create-patient-profile.dto';
 import { UpdatePatientProfileDto } from './dto/update.dto';
 import {
