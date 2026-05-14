@@ -10,6 +10,13 @@ import { RolesGuard } from './auth/guards/roles.guard';
 import { User } from './users/user.entity';
 import { OtpVerification } from './otp/otp-verification.entity';
 
+import { PatientsModule } from './patients/patients.module';
+import { PatientProfile } from './patients/entities/patient-profile.entity';
+import { FamilyMember } from './patients/entities/family-member.entity';
+import { MedicalHistory } from './patients/entities/medical-history.entity';
+import { Allergy } from './patients/entities/allergy.entity';
+import { Vaccination } from './patients/entities/vaccination.entity';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -24,13 +31,22 @@ import { OtpVerification } from './otp/otp-verification.entity';
         username: configService.get('DB_USERNAME'),
         password: configService.get('DB_PASSWORD'),
         database: configService.get('DB_NAME'),
-        entities: [User, OtpVerification],
+        entities: [
+          User,
+          OtpVerification,
+          PatientProfile,
+          FamilyMember,
+          MedicalHistory,
+          Allergy,
+          Vaccination,
+        ],
         synchronize: false,
         logging: true,
       }),
       inject: [ConfigService],
     }),
     AuthModule,
+    PatientsModule,
   ],
   controllers: [AppController],
   providers: [
