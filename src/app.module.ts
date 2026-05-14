@@ -17,6 +17,16 @@ import { MedicalHistory } from './patients/entities/medical-history.entity';
 import { Allergy } from './patients/entities/allergy.entity';
 import { Vaccination } from './patients/entities/vaccination.entity';
 
+import { DoctorsModule } from './doctors/doctors.module';
+import { AppointmentsModule } from './appointments/appointments.module';
+import { ReviewsModule } from './reviews/reviews.module';
+import { Doctor } from './doctors/entities/doctor.entity';
+import { DoctorAvailability } from './doctors/entities/doctor-availability.entity';
+import { DoctorDocument } from './doctors/entities/doctor-document.entity';
+import { Specialization } from './doctors/entities/specialization.entity';
+import { Appointment } from './appointments/entities/appointment.entity';
+import { DoctorReview } from './reviews/entities/doctor-review.entity';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -39,6 +49,12 @@ import { Vaccination } from './patients/entities/vaccination.entity';
           MedicalHistory,
           Allergy,
           Vaccination,
+          Doctor,
+          DoctorAvailability,
+          DoctorDocument,
+          Specialization,
+          Appointment,
+          DoctorReview,
         ],
         synchronize: false,
         logging: true,
@@ -47,6 +63,9 @@ import { Vaccination } from './patients/entities/vaccination.entity';
     }),
     AuthModule,
     PatientsModule,
+    DoctorsModule,
+    AppointmentsModule,
+    ReviewsModule,
   ],
   controllers: [AppController],
   providers: [
